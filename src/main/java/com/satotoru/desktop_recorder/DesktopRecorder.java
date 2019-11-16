@@ -74,9 +74,10 @@ public class DesktopRecorder {
 
 	public static void main(String args[]) {
 		try {
-			DesktopRecorder recorder = new DesktopRecorder("capture");
+			int duration = Integer.parseInt(args[1]);
+			DesktopRecorder recorder = new DesktopRecorder(args[0]);
 			recorder.start();
-			Thread.sleep(10000);
+			Thread.sleep(duration * 1000);
 			recorder.stop();
 		} catch (Exception e) {
 			e.printStackTrace();
