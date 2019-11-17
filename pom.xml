@@ -6,11 +6,66 @@
 	<artifactId>desktop-recorder</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<name>desktop-recorder</name>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.bytedeco</groupId>
 			<artifactId>javacv-platform</artifactId>
 			<version>1.5.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>openblas</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>flycapture</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>libdc1394</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>libfreenect</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>libfreenect2</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>librealsense</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>librealsense2</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>artoolkitplus</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>flandmark</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>leptonica</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>tesseract</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bytedeco</groupId>
+					<artifactId>videoinput</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>
@@ -19,12 +74,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<descriptors>
+						<descriptor>jar-with-dependencies-and-exclude-classes.xml</descriptor>
+					</descriptors>
 					<archive>
 						<manifest>
-							<mainClass>com.satotoru.desktop_recorder.DesktopRecorder</mainClass>
+							<mainClass>com.satotoru.desktop_recorder.DesktopRecorderGui</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
